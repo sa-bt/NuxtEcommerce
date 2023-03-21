@@ -10,5 +10,9 @@
   },
   "devDependencies": {
     "nuxt": "^3.3.2"
+  },
+  "dependencies": {
+    "bootstrap": "^5.2.3",
+    "snyk": "^1.1133.0"
   }
 }
