@@ -1,4 +1,5 @@
 <template>
-<LayoutHeader />
-
+  <LayoutHeader />
+  <Slider />
+  <Features />
 </template>
