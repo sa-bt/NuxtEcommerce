@@ -3,4 +3,5 @@
   <Slider />
   <Features />
   <ProductTab />
+  <AboutUs/>
 </template>
