@@ -15,6 +15,7 @@
     "bootstrap": "^5.2.3",
     "bootstrap-icons": "^1.10.3",
     "snyk": "^1.1133.0",
+    "vue-toastification": "^2.0.0-rc.5",
     "vue3-tabs-component": "^1.2.1"
   }
 }

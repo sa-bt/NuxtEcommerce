@@ -3,5 +3,6 @@
   <Slider />
   <Features />
   <ProductTab />
-  <AboutUs/>
+  <AboutUs />
+  <ContactUs />
 </template>
