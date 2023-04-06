@@ -6,7 +6,9 @@
         <h2>منو محصولات</h2>
       </div>
 
-        <Tabs nav-class="filters_menu" nav-item-active-class="active" :options="{ disableScrollBehavior: true }">
+        <Tabs nav-class="filters_menu" nav-item-active-class="active" 
+        :options="{ disableScrollBehavior: true }"
+        >
         <Tab v-for="(tabList , index) in products.data.tabList" :key="index" :name="tabList">
             <div class="filters_content">
         <div class="row grid">
@@ -34,5 +36,5 @@ const {
   public: { apiBase },
 } = useRuntimeConfig();
 const { data:products, error } = await useFetch(`${apiBase}/products/products-tabs`);
-// console.log(data.value);
+// console.log(products);
 </script>
