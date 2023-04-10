@@ -13,10 +13,15 @@
                 placeholder="نام محصول ..."
                 aria-label="Recipient's username"
                 aria-describedby="basic-addon2"
+                v-model="search"
               />
-              <a href="#" class="input-group-text" id="basic-addon2">
+              <button
+                @click="search !== '' && handleFilter({ search: search })"
+                class="input-group-text"
+                id="basic-addon2"
+              >
                 <i class="bi bi-search"></i>
-              </a>
+              </button>
             </div>
           </div>
           <hr />
@@ -26,6 +31,7 @@
               <li
                 v-for="category in categories.data"
                 :key="category.id"
+                @click="handleFilter({ category: category.id })"
                 class="my-2 cursor-pointer filter-list-active"
               >
                 {{ category.name }}
@@ -97,39 +103,50 @@
           </div>
         </div>
         <div class="col-sm-12 col-lg-9">
-
-            <div v-if="pending" class="d-flex justify-content-center align-items-center h-100">
+          <div
+            v-if="pending"
+            class="d-flex justify-content-center align-items-center h-100"
+          >
             <div class="spinner-border"></div>
+          </div>
+
+          <template v-else>
+            <div
+              v-if="data.data.products.length == 0"
+              class="d-flex justify-content-center align-items-center h-100"
+            >
+              <h5>محصولی یافت نشد ...</h5>
             </div>
 
-            <template v-else><div class="row gx-3">
-            <div
-              class="col-sm-6 col-lg-4"
-              v-for="product in data.data.products"
-              :key="product.id"
-            >
-              <ProductCard :product="product" />
-            </div>
-          </div>
-          <nav class="d-flex justify-content-center mt-5">
-            <ul class="pagination">
-              <li
-                v-for="(link, index) in data.data.meta.links.slice(1, -1)"
-                :key="index"
-                :class="{ active: link.active }"
-                class="page-item"
-              >
-                <button
-                  class="page-link"
-                  @click="handleFilter( link.label )"
+            <div v-else>
+              <div class="row gx-3">
+                <div
+                  class="col-sm-6 col-lg-4"
+                  v-for="product in data.data.products"
+                  :key="product.id"
                 >
-                  {{ link.label }}
-                </button>
-              </li>
-            </ul>
-          </nav>
-        </template>
-          
+                  <ProductCard :product="product" />
+                </div>
+              </div>
+              <nav class="d-flex justify-content-center mt-5">
+                <ul class="pagination">
+                  <li
+                    v-for="(link, index) in data.data.meta.links.slice(1, -1)"
+                    :key="index"
+                    :class="{ active: link.active }"
+                    class="page-item"
+                  >
+                    <button
+                      class="page-link"
+                      @click="handleFilter({ page: link.label })"
+                    >
+                      {{ link.label }}
+                    </button>
+                  </li>
+                </ul>
+              </nav>
+            </div>
+          </template>
         </div>
       </div>
     </div>
@@ -137,20 +154,27 @@
   <!-- end food section -->
 </template>
 <script setup>
-
+const search = "";
 const query = ref({});
+const router = useRouter();
+const route = useRoute();
 const {
   public: { apiBase },
 } = useRuntimeConfig();
 
 const { data: categories } = await useFetch(`${apiBase}/categories`);
 
+query.value=route.query
 const { data, refresh, pending } = await useFetch(`${apiBase}/menu`, {
   query: query,
 });
 
-function handleFilter(number) {
-  query.value = { page: number };
+function handleFilter(param) {
+  query.value = { ...route.query, ...param };
+  router.push({
+    path: "/menu",
+    query: query.value,
+  });
 
   refresh();
 }
