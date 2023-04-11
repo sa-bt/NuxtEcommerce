@@ -32,7 +32,8 @@
                 v-for="category in categories.data"
                 :key="category.id"
                 @click="handleFilter({ category: category.id })"
-                class="my-2 cursor-pointer filter-list-active"
+                class="my-2 cursor-pointer "
+                :class="{'filter-list-active': route.query.hasOwnProperty('category') && route.query.category == category.id}"
               >
                 {{ category.name }}
               </li>
@@ -47,6 +48,7 @@
                 type="radio"
                 name="flexRadioDefault"
                 id="flexRadioDefault1"
+                @click="handleFilter({sortBy:'max'})"
               />
               <label
                 class="form-check-label cursor-pointer"
@@ -61,6 +63,7 @@
                 type="radio"
                 name="flexRadioDefault"
                 id="flexRadioDefault2"
+                @click="handleFilter({sortBy:'min'})"
                 checked
               />
               <label
@@ -76,6 +79,8 @@
                 type="radio"
                 name="flexRadioDefault"
                 id="flexRadioDefault3"
+                @click="handleFilter({sortBy:'bestseller'})"
+
                 checked
               />
               <label
@@ -91,6 +96,7 @@
                 type="radio"
                 name="flexRadioDefault"
                 id="flexRadioDefault4"
+                @click="handleFilter({sortBy:'sale'})"
                 checked
               />
               <label
@@ -171,11 +177,15 @@ const { data, refresh, pending } = await useFetch(`${apiBase}/menu`, {
 
 function handleFilter(param) {
   query.value = { ...route.query, ...param };
+
+  if (!param.hasOwnProperty('page')) {
+    delete query.value.page;
+  }
   router.push({
     path: "/menu",
     query: query.value,
   });
-
+console.log(query.value);
   refresh();
 }
 </script>
