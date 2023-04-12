@@ -14,6 +14,7 @@
                 aria-label="Recipient's username"
                 aria-describedby="basic-addon2"
                 v-model="search"
+                @input="checkSearchBox"
               />
               <button
                 @click="search !== '' && handleFilter({ search: search })"
@@ -32,8 +33,12 @@
                 v-for="category in categories.data"
                 :key="category.id"
                 @click="handleFilter({ category: category.id })"
-                class="my-2 cursor-pointer "
-                :class="{'filter-list-active': route.query.hasOwnProperty('category') && route.query.category == category.id}"
+                class="my-2 cursor-pointer"
+                :class="{
+                  'filter-list-active':
+                    route.query.hasOwnProperty('category') &&
+                    route.query.category == category.id,
+                }"
               >
                 {{ category.name }}
               </li>
@@ -48,7 +53,11 @@
                 type="radio"
                 name="flexRadioDefault"
                 id="flexRadioDefault1"
-                @click="handleFilter({sortBy:'max'})"
+                @click="handleFilter({ sortBy: 'max' })"
+                :checked="
+                  route.query.hasOwnProperty('sortBy') &&
+                  route.query.sortBy == 'max'
+                "
               />
               <label
                 class="form-check-label cursor-pointer"
@@ -63,8 +72,11 @@
                 type="radio"
                 name="flexRadioDefault"
                 id="flexRadioDefault2"
-                @click="handleFilter({sortBy:'min'})"
-                checked
+                @click="handleFilter({ sortBy: 'min' })"
+                :checked="
+                  route.query.hasOwnProperty('sortBy') &&
+                  route.query.sortBy == 'min'
+                "
               />
               <label
                 class="form-check-label cursor-pointer"
@@ -79,9 +91,11 @@
                 type="radio"
                 name="flexRadioDefault"
                 id="flexRadioDefault3"
-                @click="handleFilter({sortBy:'bestseller'})"
-
-                checked
+                @click="handleFilter({ sortBy: 'bestseller' })"
+                :checked="
+                  route.query.hasOwnProperty('sortBy') &&
+                  route.query.sortBy == 'bestseller'
+                "
               />
               <label
                 class="form-check-label cursor-pointer"
@@ -96,8 +110,11 @@
                 type="radio"
                 name="flexRadioDefault"
                 id="flexRadioDefault4"
-                @click="handleFilter({sortBy:'sale'})"
-                checked
+                @click="handleFilter({ sortBy: 'sale' })"
+                :checked="
+                  route.query.hasOwnProperty('sortBy') &&
+                  route.query.sortBy == 'sale'
+                "
               />
               <label
                 class="form-check-label cursor-pointer"
@@ -170,22 +187,41 @@ const {
 
 const { data: categories } = await useFetch(`${apiBase}/categories`);
 
-query.value=route.query
+query.value = route.query;
 const { data, refresh, pending } = await useFetch(`${apiBase}/menu`, {
   query: query,
+});
+
+watch(route, () => {
+  if (Object.keys(route.query).length == 0) {
+    query.value = {};
+    refresh();
+  }
 });
 
 function handleFilter(param) {
   query.value = { ...route.query, ...param };
 
-  if (!param.hasOwnProperty('page')) {
+  if (!param.hasOwnProperty("page")) {
     delete query.value.page;
   }
   router.push({
     path: "/menu",
     query: query.value,
   });
-console.log(query.value);
-  refresh();
+  console.log(query.value);
+  // refresh();
+}
+
+function checkSearchBox(element) {
+  if (element.target.value == "") {
+    if (query.value.hasOwnProperty("search")) {
+      delete query.value.search;
+    }
+    router.push({
+      path: "/menu",
+      query: query.value,
+    });
+  }
 }
 </script>

@@ -7,7 +7,7 @@
                     <nav class="navbar navbar-expand-lg custom_nav-container">
                         <NuxtLink class="navbar-brand" to="/">
                             <span>
-                                webprog.io
+                                SABT
                             </span>
                         </NuxtLink>
 
