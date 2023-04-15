@@ -1,25 +1,59 @@
 <template>
-     <!-- login section -->
-     <section class="auth_section book_section">
-        <div class="container">
-            <div class="row mt-5">
-                <div class="col-md-4 offset-md-4">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="form_container">
-                                <form>
-                                    <div class="mb-3">
-                                        <label for="cellphone" class="form-label">شماره موبایل</label>
-                                        <input type="text" class="form-control" id="cellphone">
-                                    </div>
-                                    <button type="submit" class="btn btn-primary btn-auth">ورود</button>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+  <!-- login section -->
+  <section class="auth_section book_section">
+    <div class="container">
+      <div class="row mt-5">
+        <div class="col-md-4 offset-md-4">
+          <div class="card">
+            <div class="card-body">
+              <div class="form_container">
+                <form @submit.prevent="login">
+                  <div class="mb-3">
+                    <label for="cellphone" class="form-label"
+                      >شماره موبایل</label
+                    >
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="cellphone"
+                      v-model="cellphone"
+                    />
+                  </div>
+                  <button type="submit" class="btn btn-primary btn-auth">
+                    ورود
+                  </button>
+                </form>
+              </div>
             </div>
+          </div>
         </div>
-    </section>
-    <!-- end login section -->
+      </div>
+    </div>
+  </section>
+  <!-- end login section -->
 </template>
+<script setup>
+import { useToast } from "vue-toastification";
+
+const cellphone = ref("");
+const toast = useToast();
+const pattern = /^(\+98|0)?9d{9}$/;
+
+async function login() {
+  if (cellphone.value == "") {
+    toast.error("شماره موبایل الزامی است");
+    return;
+  }
+  if (!pattern.test(cellphone.value)) {
+    toast.error("فرمت شماره موبایل نامعتبر است");
+  }
+  try {
+    const data = await $fetch("auth/login", {
+      method: "POST",
+      body: cellphone.value,
+    });
+  } catch (error) {
+    console.log(error);
+  }
+}
+</script>
