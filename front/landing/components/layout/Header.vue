@@ -39,7 +39,7 @@
                                         3
                                     </span>
                                 </a>
-                                <NuxtLink to="login" class="btn-auth">
+                                <NuxtLink to="auth/login" class="btn-auth">
                                     ورود
                                 </NuxtLink>
                             </div>
