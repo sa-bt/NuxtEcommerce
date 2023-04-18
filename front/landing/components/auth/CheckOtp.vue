@@ -18,7 +18,7 @@
                       type="text"
                       class="form-control"
                       id="otp"
-                      v-model="cellphone"
+                      v-model="otp"
                     />
                   </div>
                   <button type="submit" class="btn btn-primary btn-auth">
@@ -36,12 +36,13 @@
 
 import { useToast } from "vue-toastification";
 
-const top = ref("");
+const otp = ref("");
 const toast = useToast();
 const errors = ref([]);
 const loading = ref(false);
 
-async function login() {
+async function checkOtp() {
+  console.log(otp.value);
   if (otp.value == "") {
     toast.error("کد اعتبارسنجی الزامی است");
     return;
@@ -54,11 +55,11 @@ async function login() {
   }
   try {
     loading.value = true;
-    const data = await $fetch("/api/auth/login", {
+    const data = await $fetch("/api/auth/checkOtp", {
       method: "POST",
       body: { otp: otp.value },
     });
-    console.log(data);
+    toast.success('با موفقیت وارد شدید.');
   } catch (error) {
     errors.value = Object.values(error.data.data.message).flat();
 
