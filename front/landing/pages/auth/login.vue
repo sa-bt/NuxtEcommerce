@@ -21,5 +21,5 @@
 definePageMeta({
   middleware:'guest'
 })
-const showOtpForm = ref(true);
+const showOtpForm = ref(false);
 </script>

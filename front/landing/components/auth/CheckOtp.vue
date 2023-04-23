@@ -8,13 +8,12 @@
           </li>
         </ul>
       </div>
-      <form @submit.prevent="checkOtp">
         <div class="mb-3">
           <label for="otp" class="form-label">کد اعتبارسنجی</label>
           <input type="text" class="form-control" id="otp" v-model="otp" />
         </div>
         <div class="d-flex align-items-center justify-content-between">
-          <button type="submit" class="btn btn-primary btn-auth">
+          <button @click="checkOtp" class="btn btn-primary btn-auth">
             تایید
             <div
               v-if="loading"
@@ -22,9 +21,8 @@
             ></div>
           </button>
 
-          <AuthResendOtp/>
+          <AuthResendOtp @resend-otp-errors="(err) => errors = err" />
         </div>
-      </form>
     </div>
   </div>
 </template>

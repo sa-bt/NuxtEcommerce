@@ -26,5 +26,5 @@ const {
   public: { crmApiBase },
 } = useRuntimeConfig();
 const { data:products, error } = await useFetch(`${crmApiBase}/subjects`);
-console.log(products);
+// console.log(products);
 </script>
