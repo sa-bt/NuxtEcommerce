@@ -2,5 +2,5 @@
   <LayoutHeader />
   <Slider />
   <Features />
-  <ProductsTab />
+  <ProductTab />
 </template>
