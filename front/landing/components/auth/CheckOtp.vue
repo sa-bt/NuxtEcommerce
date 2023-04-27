@@ -55,6 +55,7 @@ async function checkOtp() {
     });
     toast.success("با موفقیت وارد شدید.");
     authUser.value = data;
+    return navigateTo('/');
   } catch (error) {
     errors.value = Object.values(error.data.data.message).flat();
 
