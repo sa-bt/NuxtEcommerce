@@ -13,6 +13,7 @@
             type="text"
             name="name"
             id="name"
+            :value="user.name"
             label="نام و نام خانوادگی"
             label-class="form-label"
             input-class="form-control"
@@ -29,6 +30,7 @@
             type="email"
             name="email"
             id="email"
+            :value="user.email"
             label="ایمیل"
             label-class="form-label"
             input-class="form-control"
@@ -47,7 +49,7 @@
             type="text"
             disabled
             class="form-control"
-            value="09100000000"
+            :value="user.cellphone"
           />
         </div>
       </div>
@@ -56,6 +58,10 @@
   </div>
 </template>
 <script setup>
+const { data: user } = await useFetch("/api/profile/info", {
+  headers: useRequestHeaders(["cookie"]),
+});
+console.log(user.value);
 function edit(formData) {
   console.log(formData);
 }
