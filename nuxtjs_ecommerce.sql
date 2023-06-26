@@ -434,7 +434,7 @@ CREATE TABLE `users` (
   `email_verified_at` timestamp NULL DEFAULT NULL,
   `password` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `cellphone` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `cellphone` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `otp` int(11) DEFAULT NULL,
   `login_token` varchar(199) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `is_admin` tinyint(4) NOT NULL DEFAULT 0,

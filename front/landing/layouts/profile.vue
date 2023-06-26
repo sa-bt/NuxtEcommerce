@@ -1,14 +1,14 @@
 <template>
-    
-    <div class="container">
+  <section class="profile_section layout_padding">
+  <div class="container">
             <div class="row">
                 <div class="col-sm-12 col-lg-3">
                     <ul class="list-group">
                         <li class="list-group-item">
-                            <a href="./index.html">اطلاعات کاربر</a>
+                            <NuxtLink to="/profile">اطلاعات کاربر</NuxtLink>
                         </li>
                         <li class="list-group-item">
-                            <a href="./addresses.html">آدرس ها</a>
+                            <NuxtLink to="/profile/addresses">آدرس ها</NuxtLink>
                         </li>
                         <li class="list-group-item">
                             <a href="./orders.html">سفارشات</a>
@@ -26,4 +26,5 @@
                 </div>
             </div>
         </div>
+  </section>
 </template>

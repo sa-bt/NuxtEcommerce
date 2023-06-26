@@ -3,6 +3,7 @@
 /public/storage
 /storage/*.key
 /vendor
+/storage
 .env
 .env.backup
 .phpunit.result.cache
@@ -13,3 +14,10 @@ npm-debug.log
 yarn-error.log
 /.idea
 /.vscode
+
+/supervisord.log
+/supervisord.pid
+/docker/redis_data
+/docker/database
+/docker/supervisord
+docker/mysql
