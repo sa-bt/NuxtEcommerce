@@ -1,11 +1,11 @@
 <template>
-  <ProfileAddressCreate/>
+  <ProfileAddressCreate :provinses="data.provinces" :cities="data.cities"/>
 </template>
 <script setup>
-const { data: user } = await useFetch("/api/profile/info", {
+const { data } = await useFetch("/api/profile/addresses", {
   headers: useRequestHeaders(["cookie"]),
 });
-console.log(user.value);
+console.log(data.value)
 function edit(formData) {
   console.log(formData);
 }

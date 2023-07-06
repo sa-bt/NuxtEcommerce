@@ -5,19 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5e241a10-4fae-4001-9dc4-d7db1c96e2ae" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/back/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/back/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/storage/app/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/back/storage/app/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/storage/app/public/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/back/storage/app/public/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/storage/framework/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/back/storage/framework/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/storage/framework/cache/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/back/storage/framework/cache/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/storage/framework/cache/data/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/back/storage/framework/cache/data/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/storage/framework/sessions/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/back/storage/framework/sessions/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/storage/framework/testing/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/back/storage/framework/testing/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/storage/framework/views/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/back/storage/framework/views/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/storage/logs/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/back/storage/logs/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/landing/layouts/profile.vue" beforeDir="false" afterPath="$PROJECT_DIR$/front/landing/layouts/profile.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/landing/nuxt.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front/landing/nuxt.config.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nuxtjs_ecommerce.sql" beforeDir="false" afterPath="$PROJECT_DIR$/nuxtjs_ecommerce.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/landing/components/profile/address/create.vue" beforeDir="false" afterPath="$PROJECT_DIR$/front/landing/components/profile/address/create.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/landing/pages/profile/addresses.vue" beforeDir="false" afterPath="$PROJECT_DIR$/front/landing/pages/profile/addresses.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/landing/pages/profile/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/front/landing/pages/profile/index.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,6 +18,13 @@
   <component name="ComposerSettings" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/back/composer.json</pharConfigPath>
     <execution />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Vue Composition API Component" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -165,7 +163,7 @@
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/home/develop/Projects/NuxtEcommerce",
+    "last_opened_file_path": "/home/develop/Projects/NuxtEcommerce/front/landing/server/api/profile/addresses",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -173,12 +171,21 @@
     "nodejs_package_manager_path": "npm",
     "ts.external.directory.path": "/home/develop/Downloads/PhpStorm-231.9011.38/plugins/javascript-impl/jsLanguageServicesImpl/external",
     "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "vue.recent.templates": [
+      "Vue Composition API Component"
+    ]
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/front/landing/server/api/profile/addresses" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/front/landing/pages/profile" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/front/landing/components/profile/address" />
     </key>
   </component>
   <component name="RunManager">
@@ -200,7 +207,11 @@
       <workItem from="1686145736519" duration="154000" />
       <workItem from="1687433129527" duration="3659000" />
       <workItem from="1687526613159" duration="9000" />
-      <workItem from="1687810215370" duration="999000" />
+      <workItem from="1687810215370" duration="1669000" />
+      <workItem from="1687854223221" duration="8000" />
+      <workItem from="1688569286945" duration="2161000" />
+      <workItem from="1688633396270" duration="71000" />
+      <workItem from="1688647726379" duration="4090000" />
     </task>
     <servers />
   </component>

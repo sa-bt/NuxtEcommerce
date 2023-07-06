@@ -1,6 +1,5 @@
 <template>
   <div class="vh-70">
-    <h1>salam</h1>
     <FormKit
       type="form"
       @submit="edit"

@@ -1,6 +1,3 @@
-<script setup lang="ts">
-
-</script>
 
 <template>
   <button class="btn btn-primary" type="button" data-bs-toggle="collapse"
@@ -9,42 +6,101 @@
   </button>
   <div class="collapse mt-3" id="collapseExample">
     <div class="card card-body">
-      <div class="row g-4">
-        <div class="col col-md-6">
-          <label class="form-label">عنوان</label>
-          <input type="text" class="form-control">
+
+      <FormKit
+          type="form"
+          @submit="create"
+          :incomplete-message="false"
+          :actions="false"
+      >
+        <div class="row g-4">
+          <div class="col col-md-6">
+            <FormKit
+                type="text"
+                name="title"
+                id="title"
+                label="عنوان"
+                label-class="form-label"
+                input-class="form-control"
+                validation="required"
+                :validation-messages="{
+              required: 'فیلد عنوان الزامی است',
+            }"
+                message-class="form-text text-danger"
+            ></FormKit>
+
+          </div>
+          <div class="col col-md-6">
+            <FormKit
+                type="text"
+                name="cellphone"
+                id="cellphone"
+                label="شماره تماس"
+                label-class="form-label"
+                input-class="form-control"
+                :validation="[['required'],['matches',/^(\+98|0)?9\d{9}$/]]"
+                :validation-messages="{
+              required: 'فیلد شماره تماس الزامی است',
+              matches: 'فیلد شماره تماس معتبر نمی باشد',
+            }"
+                message-class="form-text text-danger"
+            ></FormKit>
+          </div>
+          <div class="col col-md-6">
+
+            <FormKit
+                type="text"
+                name="postal_code"
+                id="postal_code"
+                label="کدپستی"
+                label-class="form-label"
+                input-class="form-control"
+                :validation="[['required'],['matches',/^\d{5}[ -]?\d{5}$/i]]"
+                :validation-messages="{
+              required: 'فیلد کدپستی الزامی است',
+              matches: 'فیلد کدپستی معتبر نمی باشد',
+            }"
+                message-class="form-text text-danger"
+            ></FormKit>
+            <label class="form-label">کد پستی</label>
+            <input type="text" class="form-control">
+          </div>
+          <div class="col col-md-6">
+            <FormKit
+                type="select"
+                name="province_id"
+                id="province_id"
+                label="استان"
+                label-class="form-label"
+                input-class="form-control"
+                validation="required"
+                :validation-messages="{
+              required: 'فیلد استان الزامی است',
+            }"
+                message-class="form-text text-danger"
+            >
+              <option v-for="province in props.cities" :key="province.id" :value="province.id">
+                {{ province.name }}
+              </option>
+
+            </FormKit>
+          </div>
+          <div class="col col-md-6">
+            <label class="form-label">شهر</label>
+            <select class="form-select" aria-label="Default select example">
+              <option selected>تهران</option>
+              <option value="1">اصفهان</option>
+              <option value="2">شیراز</option>
+              <option value="3">یزد</option>
+            </select>
+          </div>
+          <div class="col col-md-12">
+            <label class="form-label">آدرس</label>
+            <textarea type="text" rows="5" class="form-control"></textarea>
+          </div>
         </div>
-        <div class="col col-md-6">
-          <label class="form-label">شماره تماس</label>
-          <input type="text" class="form-control">
-        </div>
-        <div class="col col-md-6">
-          <label class="form-label">کد پستی</label>
-          <input type="text" class="form-control">
-        </div>
-        <div class="col col-md-6">
-          <label class="form-label">استان</label>
-          <select class="form-select" aria-label="Default select example">
-            <option selected>تهران</option>
-            <option value="1">اصفهان</option>
-            <option value="2">فارس</option>
-            <option value="3">یزد</option>
-          </select>
-        </div>
-        <div class="col col-md-6">
-          <label class="form-label">شهر</label>
-          <select class="form-select" aria-label="Default select example">
-            <option selected>تهران</option>
-            <option value="1">اصفهان</option>
-            <option value="2">شیراز</option>
-            <option value="3">یزد</option>
-          </select>
-        </div>
-        <div class="col col-md-12">
-          <label class="form-label">آدرس</label>
-          <textarea type="text" rows="5" class="form-control"></textarea>
-        </div>
-      </div>
+      </FormKit>
+
       <div>
         <button class="btn btn-primary mt-4">ایجاد</button>
       </div>
@@ -52,7 +108,14 @@
   </div>
   <hr>
 </template>
+<script setup>
 
+const props = defineProps(['provinces', 'cities'])
+console.log(props)
+function create() {
+  console.log()
+}
+</script>
 <style scoped>
 
 </style>
