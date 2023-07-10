@@ -1,4 +1,3 @@
-
 <template>
   <button class="btn btn-primary" type="button" data-bs-toggle="collapse"
           data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
@@ -10,6 +9,7 @@
       <FormKit
           type="form"
           @submit="create"
+          #default="{value}"
           :incomplete-message="false"
           :actions="false"
       >
@@ -62,8 +62,6 @@
             }"
                 message-class="form-text text-danger"
             ></FormKit>
-            <label class="form-label">کد پستی</label>
-            <input type="text" class="form-control">
           </div>
           <div class="col col-md-6">
             <FormKit
@@ -74,36 +72,65 @@
                 label-class="form-label"
                 input-class="form-control"
                 validation="required"
+                @change="changeProvince"
                 :validation-messages="{
               required: 'فیلد استان الزامی است',
             }"
                 message-class="form-text text-danger"
             >
-              <option v-for="province in props.cities" :key="province.id" :value="province.id">
+              <option v-for="province in props.provinces" :key="province.id" :value="province.id">
                 {{ province.name }}
               </option>
 
             </FormKit>
           </div>
           <div class="col col-md-6">
-            <label class="form-label">شهر</label>
-            <select class="form-select" aria-label="Default select example">
-              <option selected>تهران</option>
-              <option value="1">اصفهان</option>
-              <option value="2">شیراز</option>
-              <option value="3">یزد</option>
-            </select>
+
+            <FormKit
+                type="select"
+                name="city_id"
+                id="city_id"
+                label="شهر"
+                ref="cityEl"
+                label-class="form-label"
+                input-class="form-control"
+                validation="required"
+                :validation-messages="{
+              required: 'فیلد شهر الزامی است',
+            }"
+                message-class="form-text text-danger"
+            >
+              <option v-for="city in props.cities.filter((item)=>item.province_id==value.province_id)" :key="city.id"
+                      :value="city.id">
+                {{ city.name }}
+              </option>
+            </FormKit>
           </div>
-          <div class="col col-md-12">
-            <label class="form-label">آدرس</label>
-            <textarea type="text" rows="5" class="form-control"></textarea>
+            <div class="col col-md-12">
+              <FormKit
+                  type="textarea"
+                  name="address"
+                  id="address"
+                  label="آدرس"
+                  rows="5"
+                  label-class="form-label"
+                  input-class="form-control"
+                  validation="required"
+                  :validation-messages="{
+              required: 'فیلد آدرس الزامی است',
+            }"
+                  message-class="form-text text-danger"
+              ></FormKit>
+
+            </div>
+          <div>
+            <FormKit
+                type="submit"
+                input-class="btn btn-primary mt-4">ایجاد</FormKit>
           </div>
         </div>
       </FormKit>
 
-      <div>
-        <button class="btn btn-primary mt-4">ایجاد</button>
-      </div>
     </div>
   </div>
   <hr>
@@ -111,9 +138,14 @@
 <script setup>
 
 const props = defineProps(['provinces', 'cities'])
-console.log(props)
+const cityEl = ref(null);
+
 function create() {
   console.log()
+}
+
+function changeProvince(el) {
+  cityEl.value.node.input(props.cities.find((item) => item.province_id == el.target.value).id);
 }
 </script>
 <style scoped>

@@ -1,5 +1,5 @@
 <template>
-  <ProfileAddressCreate :provinses="data.provinces" :cities="data.cities"/>
+  <ProfileAddressCreate :provinces="data.provinces" :cities="data.cities"/>
 </template>
 <script setup>
 const { data } = await useFetch("/api/profile/addresses", {

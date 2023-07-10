@@ -6,9 +6,13 @@
   <component name="ChangeListManager">
     <list default="true" id="5e241a10-4fae-4001-9dc4-d7db1c96e2ae" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/docker/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/back/docker/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/docker/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/back/docker/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/docker/nginx.dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/back/docker/nginx.dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/docker/nginx/default.conf" beforeDir="false" afterPath="$PROJECT_DIR$/back/docker/nginx/default.conf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/docker/nginx/nginx.conf" beforeDir="false" afterPath="$PROJECT_DIR$/back/docker/nginx/nginx.conf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/docker/php-ini/php.ini" beforeDir="false" afterPath="$PROJECT_DIR$/back/docker/php-ini/php.ini" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/front/landing/components/profile/address/create.vue" beforeDir="false" afterPath="$PROJECT_DIR$/front/landing/components/profile/address/create.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/landing/pages/profile/addresses.vue" beforeDir="false" afterPath="$PROJECT_DIR$/front/landing/pages/profile/addresses.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/landing/pages/profile/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/front/landing/pages/profile/index.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -159,25 +163,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/home/develop/Projects/NuxtEcommerce/front/landing/server/api/profile/addresses",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "ts.external.directory.path": "/home/develop/Downloads/PhpStorm-231.9011.38/plugins/javascript-impl/jsLanguageServicesImpl/external",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/develop/Projects/NuxtEcommerce/front/landing/server/api/profile/addresses&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/home/develop/Downloads/PhpStorm-231.9011.38/plugins/javascript-impl/jsLanguageServicesImpl/external&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "vue.recent.templates": [
-      "Vue Composition API Component"
+  &quot;keyToStringList&quot;: {
+    &quot;vue.recent.templates&quot;: [
+      &quot;Vue Composition API Component&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/front/landing/server/api/profile/addresses" />
@@ -212,6 +216,10 @@
       <workItem from="1688569286945" duration="2161000" />
       <workItem from="1688633396270" duration="71000" />
       <workItem from="1688647726379" duration="4090000" />
+      <workItem from="1688654771984" duration="636000" />
+      <workItem from="1688801628672" duration="603000" />
+      <workItem from="1688910796951" duration="177000" />
+      <workItem from="1688980096523" duration="889000" />
     </task>
     <servers />
   </component>
