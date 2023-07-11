@@ -4,7 +4,6 @@ export default defineEventHandler(async (event) => {
     public: { apiBase },
   } = useRuntimeConfig();
   const loginToken = getCookie(event, "login_token");
-  console.log(body, loginToken);
   try {
     const data = await $fetch(`${apiBase}/auth/check-otp`, {
       method: "POST",

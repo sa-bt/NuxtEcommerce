@@ -5,7 +5,13 @@
   </button>
   <div class="collapse mt-3" id="collapseExample">
     <div class="card card-body">
-
+      <div v-if="errors.length > 0" class="alert alert-danger">
+        <ul class="mb-0">
+          <li v-for="(error, index) in errors" :key="index">
+            {{ error }}
+          </li>
+        </ul>
+      </div>
       <FormKit
           type="form"
           @submit="create"
@@ -106,27 +112,28 @@
               </option>
             </FormKit>
           </div>
-            <div class="col col-md-12">
-              <FormKit
-                  type="textarea"
-                  name="address"
-                  id="address"
-                  label="آدرس"
-                  rows="5"
-                  label-class="form-label"
-                  input-class="form-control"
-                  validation="required"
-                  :validation-messages="{
+          <div class="col col-md-12">
+            <FormKit
+                type="textarea"
+                name="address"
+                id="address"
+                label="آدرس"
+                rows="5"
+                label-class="form-label"
+                input-class="form-control"
+                validation="required"
+                :validation-messages="{
               required: 'فیلد آدرس الزامی است',
             }"
-                  message-class="form-text text-danger"
-              ></FormKit>
+                message-class="form-text text-danger"
+            ></FormKit>
 
-            </div>
+          </div>
           <div>
             <FormKit
                 type="submit"
-                input-class="btn btn-primary mt-4">ایجاد</FormKit>
+                input-class="btn btn-primary mt-4">ایجاد
+            </FormKit>
           </div>
         </div>
       </FormKit>
@@ -136,12 +143,30 @@
   <hr>
 </template>
 <script setup>
+import {useToast} from "vue-toastification";
 
 const props = defineProps(['provinces', 'cities'])
 const cityEl = ref(null);
+const loading = ref(false);
+const errors = ref([]);
 
-function create() {
-  console.log()
+async function create(formData) {
+  try {
+    loading.value = true;
+    errors.value = [];
+    await $fetch("/api/profile/addresses/create", {
+      method: "POST",
+      body: formData
+    });
+
+    toast.success("آدرس با موفقیت ایجاد شد.");
+  } catch (error) {
+    errors.value = Object.values(error.data.data.message).flat();
+  } finally {
+    loading.value = false;
+  }
+
+
 }
 
 function changeProvince(el) {
