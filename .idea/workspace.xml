@@ -6,13 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="5e241a10-4fae-4001-9dc4-d7db1c96e2ae" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/docker/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/back/docker/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/docker/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/back/docker/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/docker/nginx.dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/back/docker/nginx.dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/docker/nginx/default.conf" beforeDir="false" afterPath="$PROJECT_DIR$/back/docker/nginx/default.conf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/docker/nginx/nginx.conf" beforeDir="false" afterPath="$PROJECT_DIR$/back/docker/nginx/nginx.conf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/docker/php-ini/php.ini" beforeDir="false" afterPath="$PROJECT_DIR$/back/docker/php-ini/php.ini" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/front/landing/components/profile/address/create.vue" beforeDir="false" afterPath="$PROJECT_DIR$/front/landing/components/profile/address/create.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/landing/pages/profile/addresses.vue" beforeDir="false" afterPath="$PROJECT_DIR$/front/landing/pages/profile/addresses.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/landing/server/api/profile/addresses/create.post.js" beforeDir="false" afterPath="$PROJECT_DIR$/front/landing/server/api/profile/addresses/create.post.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -219,7 +215,9 @@
       <workItem from="1688654771984" duration="636000" />
       <workItem from="1688801628672" duration="603000" />
       <workItem from="1688910796951" duration="177000" />
-      <workItem from="1688980096523" duration="889000" />
+      <workItem from="1688980096523" duration="4708000" />
+      <workItem from="1689057896590" duration="4853000" />
+      <workItem from="1689169374193" duration="1127000" />
     </task>
     <servers />
   </component>

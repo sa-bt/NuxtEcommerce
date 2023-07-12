@@ -5,7 +5,6 @@
 const { data } = await useFetch("/api/profile/addresses", {
   headers: useRequestHeaders(["cookie"]),
 });
-console.log(data.value)
 function edit(formData) {
   console.log(formData);
 }

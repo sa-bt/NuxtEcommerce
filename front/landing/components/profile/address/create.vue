@@ -15,6 +15,7 @@
       <FormKit
           type="form"
           @submit="create"
+          id="createAddress"
           #default="{value}"
           :incomplete-message="false"
           :actions="false"
@@ -130,10 +131,16 @@
 
           </div>
           <div>
+
             <FormKit
                 type="submit"
                 input-class="btn btn-primary mt-4">ایجاد
             </FormKit>
+
+            <div
+                v-if="loading"
+                class="spinner-border spinner-border-sm ms-2"
+            ></div>
           </div>
         </div>
       </FormKit>
@@ -144,11 +151,13 @@
 </template>
 <script setup>
 import {useToast} from "vue-toastification";
+import {reset} from "@formkit/core"
 
 const props = defineProps(['provinces', 'cities'])
 const cityEl = ref(null);
 const loading = ref(false);
 const errors = ref([]);
+const toast = useToast();
 
 async function create(formData) {
   try {
@@ -160,6 +169,7 @@ async function create(formData) {
     });
 
     toast.success("آدرس با موفقیت ایجاد شد.");
+    reset('createAddress');
   } catch (error) {
     errors.value = Object.values(error.data.data.message).flat();
   } finally {
