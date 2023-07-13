@@ -1,9 +1,12 @@
 <template>
-  <button class="btn btn-primary" type="button" data-bs-toggle="collapse"
-          data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-    ایجاد آدرس جدید
-  </button>
-  <div class="collapse mt-3" id="collapseExample">
+
+  <FormKit
+      type="form"
+      @submit="edit"
+      #default="{value}"
+      :incomplete-message="false"
+      :actions="false"
+  >
     <div class="card card-body">
       <div v-if="errors.length > 0" class="alert alert-danger">
         <ul class="mb-0">
@@ -12,14 +15,6 @@
           </li>
         </ul>
       </div>
-      <FormKit
-          type="form"
-          @submit="create"
-          id="createAddress"
-          #default="{value}"
-          :incomplete-message="false"
-          :actions="false"
-      >
         <div class="row g-4">
           <div class="col col-md-6">
             <FormKit
@@ -27,6 +22,7 @@
                 name="title"
                 id="title"
                 label="عنوان"
+                :value="props.address.title"
                 label-class="form-label"
                 input-class="form-control"
                 validation="required"
@@ -42,6 +38,7 @@
                 type="text"
                 name="cellphone"
                 id="cellphone"
+                :value="props.address.cellphone"
                 label="شماره تماس"
                 label-class="form-label"
                 input-class="form-control"
@@ -60,6 +57,7 @@
                 name="postal_code"
                 id="postal_code"
                 label="کدپستی"
+                :value="props.address.postal_code"
                 label-class="form-label"
                 input-class="form-control"
                 :validation="[['required'],['matches',/^\d{5}[ -]?\d{5}$/i]]"
@@ -70,6 +68,7 @@
                 message-class="form-text text-danger"
             ></FormKit>
           </div>
+          <ClientOnly fallback-tag="span" fallback="در حال بارگذاری ...">
           <div class="col col-md-6">
             <FormKit
                 type="select"
@@ -79,13 +78,14 @@
                 label-class="form-label"
                 input-class="form-control"
                 validation="required"
+                :value="props.address.province_id"
                 @change="changeProvince"
                 :validation-messages="{
               required: 'فیلد استان الزامی است',
             }"
                 message-class="form-text text-danger"
             >
-              <option v-for="province in props.provinces" :key="province.id" :value="province.id">
+              <option v-for="province in props.provinces" :key="province.id" :value="province.id" >
                 {{ province.name }}
               </option>
 
@@ -99,6 +99,7 @@
                 id="city_id"
                 label="شهر"
                 ref="cityEl"
+                :value="props.address.city_id"
                 label-class="form-label"
                 input-class="form-control"
                 validation="required"
@@ -113,12 +114,14 @@
               </option>
             </FormKit>
           </div>
+          </ClientOnly>
           <div class="col col-md-12">
             <FormKit
                 type="textarea"
                 name="address"
                 id="address"
                 label="آدرس"
+                :value="props.address.address"
                 rows="5"
                 label-class="form-label"
                 input-class="form-control"
@@ -134,7 +137,7 @@
 
             <FormKit
                 type="submit"
-                input-class="btn btn-primary mt-4">ایجاد
+                input-class="btn btn-primary mt-4">ویرایش
             </FormKit>
 
             <div
@@ -143,32 +146,32 @@
             ></div>
           </div>
         </div>
-      </FormKit>
-
     </div>
-  </div>
+    <hr>
+
+  </FormKit>
+
 </template>
 <script setup>
 import {useToast} from "vue-toastification";
 import {reset} from "@formkit/core"
 
-const props = defineProps(['provinces', 'cities'])
+const props = defineProps(['provinces', 'cities', 'address'])
 const cityEl = ref(null);
 const loading = ref(false);
 const errors = ref([]);
 const toast = useToast();
 
-async function create(formData) {
+async function edit(formData) {
   try {
     loading.value = true;
     errors.value = [];
-    await $fetch("/api/profile/addresses/create", {
+    await $fetch("/api/profile/addresses/edit", {
       method: "POST",
-      body: formData
+      body: {...formData,address_id:props.address.id}
     });
 
-    toast.success("آدرس با موفقیت ایجاد شد.");
-    reset('createAddress');
+    toast.success("آدرس با موفقیت ویرایش شد.");
   } catch (error) {
     errors.value = Object.values(error.data.data.message).flat();
   } finally {
