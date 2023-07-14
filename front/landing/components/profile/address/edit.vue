@@ -15,60 +15,60 @@
           </li>
         </ul>
       </div>
-        <div class="row g-4">
-          <div class="col col-md-6">
-            <FormKit
-                type="text"
-                name="title"
-                id="title"
-                label="عنوان"
-                :value="props.address.title"
-                label-class="form-label"
-                input-class="form-control"
-                validation="required"
-                :validation-messages="{
+      <div class="row g-4">
+        <div class="col col-md-6">
+          <FormKit
+              type="text"
+              name="title"
+              id="title"
+              label="عنوان"
+              :value="props.address.title"
+              label-class="form-label"
+              input-class="form-control"
+              validation="required"
+              :validation-messages="{
               required: 'فیلد عنوان الزامی است',
             }"
-                message-class="form-text text-danger"
-            ></FormKit>
+              message-class="form-text text-danger"
+          ></FormKit>
 
-          </div>
-          <div class="col col-md-6">
-            <FormKit
-                type="text"
-                name="cellphone"
-                id="cellphone"
-                :value="props.address.cellphone"
-                label="شماره تماس"
-                label-class="form-label"
-                input-class="form-control"
-                :validation="[['required'],['matches',/^(\+98|0)?9\d{9}$/]]"
-                :validation-messages="{
+        </div>
+        <div class="col col-md-6">
+          <FormKit
+              type="text"
+              name="cellphone"
+              id="cellphone"
+              :value="props.address.cellphone"
+              label="شماره تماس"
+              label-class="form-label"
+              input-class="form-control"
+              :validation="[['required'],['matches',/^(\+98|0)?9\d{9}$/]]"
+              :validation-messages="{
               required: 'فیلد شماره تماس الزامی است',
               matches: 'فیلد شماره تماس معتبر نمی باشد',
             }"
-                message-class="form-text text-danger"
-            ></FormKit>
-          </div>
-          <div class="col col-md-6">
+              message-class="form-text text-danger"
+          ></FormKit>
+        </div>
+        <div class="col col-md-6">
 
-            <FormKit
-                type="text"
-                name="postal_code"
-                id="postal_code"
-                label="کدپستی"
-                :value="props.address.postal_code"
-                label-class="form-label"
-                input-class="form-control"
-                :validation="[['required'],['matches',/^\d{5}[ -]?\d{5}$/i]]"
-                :validation-messages="{
+          <FormKit
+              type="text"
+              name="postal_code"
+              id="postal_code"
+              label="کدپستی"
+              :value="props.address.postal_code"
+              label-class="form-label"
+              input-class="form-control"
+              :validation="[['required'],['matches',/^\d{5}[ -]?\d{5}$/i]]"
+              :validation-messages="{
               required: 'فیلد کدپستی الزامی است',
               matches: 'فیلد کدپستی معتبر نمی باشد',
             }"
-                message-class="form-text text-danger"
-            ></FormKit>
-          </div>
-          <ClientOnly fallback-tag="span" fallback="در حال بارگذاری ...">
+              message-class="form-text text-danger"
+          ></FormKit>
+        </div>
+        <ClientOnly fallback-tag="span" fallback="در حال بارگذاری ...">
           <div class="col col-md-6">
             <FormKit
                 type="select"
@@ -85,7 +85,7 @@
             }"
                 message-class="form-text text-danger"
             >
-              <option v-for="province in props.provinces" :key="province.id" :value="province.id" >
+              <option v-for="province in props.provinces" :key="province.id" :value="province.id">
                 {{ province.name }}
               </option>
 
@@ -114,38 +114,43 @@
               </option>
             </FormKit>
           </div>
-          </ClientOnly>
-          <div class="col col-md-12">
-            <FormKit
-                type="textarea"
-                name="address"
-                id="address"
-                label="آدرس"
-                :value="props.address.address"
-                rows="5"
-                label-class="form-label"
-                input-class="form-control"
-                validation="required"
-                :validation-messages="{
+        </ClientOnly>
+        <div class="col col-md-12">
+          <FormKit
+              type="textarea"
+              name="address"
+              id="address"
+              label="آدرس"
+              :value="props.address.address"
+              rows="5"
+              label-class="form-label"
+              input-class="form-control"
+              validation="required"
+              :validation-messages="{
               required: 'فیلد آدرس الزامی است',
             }"
-                message-class="form-text text-danger"
-            ></FormKit>
+              message-class="form-text text-danger"
+          ></FormKit>
 
-          </div>
-          <div>
+        </div>
+        <div>
+          <div class="d-flex justify-content-between mt-4">
 
             <FormKit
                 type="submit"
-                input-class="btn btn-primary mt-4">ویرایش
+                input-class="btn btn-primary">ویرایش
+              <div
+                  v-if="loading"
+                  class="spinner-border spinner-border-sm ms-2">
+              </div>
             </FormKit>
+            <ProfileAddressDelete :addressId="props.address.id">
+            </ProfileAddressDelete>
 
-            <div
-                v-if="loading"
-                class="spinner-border spinner-border-sm ms-2"
-            ></div>
+
           </div>
         </div>
+      </div>
     </div>
     <hr>
 
@@ -168,7 +173,7 @@ async function edit(formData) {
     errors.value = [];
     await $fetch("/api/profile/addresses/edit", {
       method: "POST",
-      body: {...formData,address_id:props.address.id}
+      body: {...formData, address_id: props.address.id}
     });
 
     toast.success("آدرس با موفقیت ویرایش شد.");
