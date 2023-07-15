@@ -133,28 +133,26 @@
           ></FormKit>
 
         </div>
-        <div>
-          <div class="d-flex justify-content-between mt-4">
+      </div>
+      <div class="d-flex justify-content-between mt-4">
 
-            <FormKit
-                type="submit"
-                input-class="btn btn-primary">ویرایش
-              <div
-                  v-if="loading"
-                  class="spinner-border spinner-border-sm ms-2">
-              </div>
-            </FormKit>
-            <ProfileAddressDelete :addressId="props.address.id">
-            </ProfileAddressDelete>
-
-
+        <FormKit
+            type="submit"
+            input-class="btn btn-primary">ویرایش
+          <div
+              v-if="loading"
+              class="spinner-border spinner-border-sm ms-2">
           </div>
-        </div>
+        </FormKit>
+        <ProfileAddressDelete :addressId="props.address.id">
+        </ProfileAddressDelete>
+
+
       </div>
     </div>
-    <hr>
 
   </FormKit>
+  <hr>
 
 </template>
 <script setup>

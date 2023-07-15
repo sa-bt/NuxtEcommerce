@@ -14,6 +14,7 @@ const props = defineProps(['addressId']);
 const loading = ref(false);
 const errors = ref([]);
 const toast = useToast();
+const refreshGetAddresses = inject('refreshGetAddresses')
 
 async function deleteAddress() {
   try {
@@ -23,7 +24,7 @@ async function deleteAddress() {
       method: "POST",
       body: {address_id: props.addressId}
     });
-
+    refreshGetAddresses();
     toast.success("آدرس با موفقیت حذف شد.");
   } catch (error) {
     errors.value = Object.values(error.data.data.message).flat();

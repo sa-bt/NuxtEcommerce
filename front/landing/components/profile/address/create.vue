@@ -4,22 +4,23 @@
     ایجاد آدرس جدید
   </button>
   <div class="collapse mt-3" id="collapseExample">
-    <div class="card card-body">
-      <div v-if="errors.length > 0" class="alert alert-danger">
-        <ul class="mb-0">
-          <li v-for="(error, index) in errors" :key="index">
-            {{ error }}
-          </li>
-        </ul>
-      </div>
-      <FormKit
-          type="form"
-          @submit="create"
-          id="createAddress"
-          #default="{value}"
-          :incomplete-message="false"
-          :actions="false"
-      >
+    <FormKit
+        type="form"
+        @submit="create"
+        id="createAddress"
+        #default="{value}"
+        :incomplete-message="false"
+        :actions="false"
+    >
+      <div class="card card-body">
+        <div v-if="errors.length > 0" class="alert alert-danger">
+          <ul class="mb-0">
+            <li v-for="(error, index) in errors" :key="index">
+              {{ error }}
+            </li>
+          </ul>
+        </div>
+
         <div class="row g-4">
           <div class="col col-md-6">
             <FormKit
@@ -143,10 +144,12 @@
             ></div>
           </div>
         </div>
-      </FormKit>
 
-    </div>
+
+      </div>
+    </FormKit>
   </div>
+
 </template>
 <script setup>
 import {useToast} from "vue-toastification";
@@ -157,6 +160,7 @@ const cityEl = ref(null);
 const loading = ref(false);
 const errors = ref([]);
 const toast = useToast();
+const refreshGetAddresses = inject('refreshGetAddresses')
 
 async function create(formData) {
   try {
@@ -166,7 +170,7 @@ async function create(formData) {
       method: "POST",
       body: formData
     });
-
+    refreshGetAddresses();
     toast.success("آدرس با موفقیت ایجاد شد.");
     reset('createAddress');
   } catch (error) {
