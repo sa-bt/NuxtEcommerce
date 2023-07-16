@@ -144,8 +144,7 @@
               class="spinner-border spinner-border-sm ms-2">
           </div>
         </FormKit>
-        <ProfileAddressDelete :addressId="props.address.id">
-        </ProfileAddressDelete>
+        <ProfileAddressDelete :addressId="props.address.id"/>
 
 
       </div>
