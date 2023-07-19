@@ -9,7 +9,7 @@ export default defineNuxtConfig({
   },
   runtimeConfig: {
     public: {
-      apiBase: "http://172.17.0.1:8082/api",
+      apiBase: "http://172.17.0.1:8083/api",
       crmApiBase: "http://172.17.0.1:8081/api",
     },
   },

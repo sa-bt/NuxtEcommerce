@@ -5,10 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5e241a10-4fae-4001-9dc4-d7db1c96e2ae" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/NuxtEcommerce.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/NuxtEcommerce.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/phpspec.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/phpspec.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/landing/components/profile/address/create.vue" beforeDir="false" afterPath="$PROJECT_DIR$/front/landing/components/profile/address/create.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/landing/pages/profile/addresses.vue" beforeDir="false" afterPath="$PROJECT_DIR$/front/landing/pages/profile/addresses.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/landing/server/api/profile/addresses/create.post.js" beforeDir="false" afterPath="$PROJECT_DIR$/front/landing/server/api/profile/addresses/create.post.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/landing/nuxt.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front/landing/nuxt.config.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,7 +32,7 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="PhpWorkspaceProjectConfiguration">
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="/bin/php">
     <include_path>
       <path value="$PROJECT_DIR$/back/vendor/composer" />
       <path value="$PROJECT_DIR$/back/vendor/psr/event-dispatcher" />
@@ -163,13 +163,13 @@
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/develop/Projects/NuxtEcommerce/front/landing/server/api/profile/addresses&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/pourya/Projects/NuxtEcommerce/back&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;/home/develop/Downloads/PhpStorm-231.9011.38/plugins/javascript-impl/jsLanguageServicesImpl/external&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/home/pourya/Downloads/PhpStorm-231.9161.47/plugins/javascript-impl/jsLanguageServicesImpl/external&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
   &quot;keyToStringList&quot;: {
@@ -180,6 +180,7 @@
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/back" />
       <recent name="$PROJECT_DIR$/front/landing/server/api/profile/addresses" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/front/landing/pages/profile" />
@@ -218,6 +219,12 @@
       <workItem from="1688980096523" duration="4708000" />
       <workItem from="1689057896590" duration="4853000" />
       <workItem from="1689169374193" duration="1127000" />
+      <workItem from="1691774529008" duration="1490000" />
+      <workItem from="1691830059482" duration="602000" />
+      <workItem from="1691877235399" duration="760000" />
+      <workItem from="1691878600213" duration="528000" />
+      <workItem from="1691911865005" duration="285000" />
+      <workItem from="1691915396154" duration="841000" />
     </task>
     <servers />
   </component>
