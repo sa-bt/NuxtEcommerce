@@ -28,7 +28,7 @@ class ProductResource extends JsonResource
             'price' => $this->price,
             'quantity' => $this->quantity,
             'description' => $this->description,
-            'is_sale' => $this->is_sale,
+            'is_sale' => $this->sale_price > 0 ? true:false,
             'sale_price' => $this->sale_price,
             'date_on_sale_from_jalali' => verta($this->date_on_sale_from)->formatDatetime(),
             'date_on_sale_to_jalali' => verta($this->date_on_sale_to)->formatDatetime(),
