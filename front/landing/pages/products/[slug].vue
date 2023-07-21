@@ -49,7 +49,7 @@
                          width="465" height="310">
                   </div>
                   <div class="carousel-item" v-for="(image,index) in product.data.images" :key="index">
-                    <img src="/images/preloader.png" class="d-block w-100" alt="..." v-img="image" width="465"
+                    <img src="/images/preloader.png" class="d-block w-100" alt="..." v-img="image.image" width="465"
                          height="310">
                   </div>
                 </div>
