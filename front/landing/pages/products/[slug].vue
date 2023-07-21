@@ -45,10 +45,12 @@
                 </div>
                 <div class="carousel-inner">
                   <div class="carousel-item active">
-                    <img src="/images/preloader.png" class="d-block w-100" v-img="product.data.primary_image" width="465" height="310">
+                    <img src="/images/preloader.png" class="d-block w-100" v-img="product.data.primary_image"
+                         width="465" height="310">
                   </div>
-                  <div class="carousel-item" v-for="(image,index) in product.data.images">
-                    <img src="/images/preloader.png" class="d-block w-100" alt="..." v-img="image" width="465" height="310">
+                  <div class="carousel-item" v-for="(image,index) in product.data.images" :key="index">
+                    <img src="/images/preloader.png" class="d-block w-100" alt="..." v-img="image" width="465"
+                         height="310">
                   </div>
                 </div>
                 <button class="carousel-control-prev" type="button"
@@ -69,6 +71,19 @@
     </div>
   </section>
   <!-- end food section -->
+
+  <hr>
+
+  <section class="food_section my-5">
+    <div class="container">
+      <div class="row gx-3">
+        <div v-for="(product,index) in randomProduct.data" :key="index" class="col-sm-6 col-lg-3">
+          <ProductCard :product="product"/>
+        </div>
+      </div>
+    </div>
+  </section>
+
 </template>
 <script setup>
 import {salePercent} from "../../utils/helper";
@@ -76,6 +91,7 @@ import {salePercent} from "../../utils/helper";
 const route = useRoute();
 const {public: {apiBase}} = useRuntimeConfig();
 const {data: product} = useFetch(`${apiBase}/products/${route.params.slug}`);
+const {data: randomProduct} = useFetch(`${apiBase}/random-products?count=4`);
 console.log(product.value)
 
 </script>
