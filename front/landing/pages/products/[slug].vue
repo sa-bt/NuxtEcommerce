@@ -86,7 +86,7 @@
 
 </template>
 <script setup>
-import {salePercent} from "../../utils/helper";
+import {salePercent} from "~/utils/helper";
 
 const route = useRoute();
 const {public: {apiBase}} = useRuntimeConfig();

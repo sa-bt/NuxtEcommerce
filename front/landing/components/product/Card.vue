@@ -22,14 +22,23 @@
             {{ numberFormat(props.product.price) }}
             <span>تومان</span>
           </h6>
-          <a href="">
+          <button @click="addToCart(props.product)">
             <i class="bi bi-cart-fill text-white fs-5"></i>
-          </a>
+          </button>
         </div>
       </div>
     </div>
   </div>
 </template>
 <script setup>
+import {cartStore} from "../../store/cart";
+
+const cart = cartStore();
 const props = defineProps(['product'])
+
+function addToCart(product){
+  console.log(product)
+  console.log('***********************')
+  cart.addToCart(product,1)
+}
 </script>
