@@ -16,8 +16,10 @@ export const cartStore = defineStore('cart', {
                 ...product,
                 qty: count
             })
-            console.log( this.cart)
             toast.success("محصول با موفقیت به سبد خرید اضافه شد.")
+        },
+        remove(id){
+            this.cart=this.cart.filter(p=> p.id !== id)
         }
     }
 })

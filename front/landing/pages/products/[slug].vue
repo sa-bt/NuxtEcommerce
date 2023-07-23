@@ -15,18 +15,18 @@
                 </div>
               </h5>
               <h5 class="mb-3" v-else>
-                {{ numberFormat(product.data.sale_price) }} تومان
+                {{ numberFormat(product.data.price) }} تومان
               </h5>
               <p>{{ product.data.description }}</p>
 
               <div class="mt-5 d-flex">
                 <button class="btn-add">افزودن به سبد خرید</button>
-                <div class="input-counter ms-4">
-                                    <span class="plus-btn">
+                <div class="input-counter ms-4" >
+                                    <span class="plus-btn" @click="()=>quantity<product.data.quantity && quantity++">
                                         +
                                     </span>
-                  <div class="input-number">1</div>
-                  <span class="minus-btn">
+                  <div class="input-number">{{ quantity }}</div>
+                  <span class="minus-btn" @click="()=>quantity>1  && quantity--">
                                         -
                                     </span>
                 </div>
@@ -87,6 +87,15 @@
 </template>
 <script setup>
 import {salePercent} from "~/utils/helper";
+import {cartStore} from "~/store/cart";
+
+const cart = cartStore();
+const quantity = ref(1)
+
+function increment(product) {
+  cart.remove(product.id);
+  cart.addToCart(product, 1);
+}
 
 const route = useRoute();
 const {public: {apiBase}} = useRuntimeConfig();

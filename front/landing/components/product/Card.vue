@@ -37,8 +37,7 @@ const cart = cartStore();
 const props = defineProps(['product'])
 
 function addToCart(product){
-  console.log(product)
-  console.log('***********************')
-  cart.addToCart(product,1)
+  cart.remove(product.id);
+  cart.addToCart(product,1);
 }
 </script>
