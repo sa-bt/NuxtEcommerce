@@ -18,8 +18,12 @@ export const cartStore = defineStore('cart', {
             })
             toast.success("محصول با موفقیت به سبد خرید اضافه شد.")
         },
-        remove(id){
-            this.cart=this.cart.filter(p=> p.id !== id)
+        remove(id) {
+            this.cart = this.cart.filter(p => p.id !== id)
         }
+    },
+    persist: {
+        storage: persistedState.localStorage,
+        key: 'shopping-cart'
     }
 })

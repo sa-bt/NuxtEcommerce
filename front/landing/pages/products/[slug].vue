@@ -20,7 +20,7 @@
               <p>{{ product.data.description }}</p>
 
               <div class="mt-5 d-flex">
-                <button class="btn-add">افزودن به سبد خرید</button>
+                <button class="btn-add" @click="addToCart(product.data)">افزودن به سبد خرید</button>
                 <div class="input-counter ms-4" >
                                     <span class="plus-btn" @click="()=>quantity<product.data.quantity && quantity++">
                                         +
@@ -92,15 +92,14 @@ import {cartStore} from "~/store/cart";
 const cart = cartStore();
 const quantity = ref(1)
 
-function increment(product) {
-  cart.remove(product.id);
-  cart.addToCart(product, 1);
-}
 
 const route = useRoute();
 const {public: {apiBase}} = useRuntimeConfig();
 const {data: product} = useFetch(`${apiBase}/products/${route.params.slug}`);
 const {data: randomProduct} = useFetch(`${apiBase}/random-products?count=4`);
-console.log(product.value)
 
+function addToCart(product){
+  cart.remove(product.id);
+  cart.addToCart(product,quantity);
+}
 </script>
