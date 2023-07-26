@@ -5,11 +5,19 @@ const toast = useToast();
 
 
 export const cartStore = defineStore('cart', {
+
     state: () => {
         return {
             cart: []
         }
     },
+
+    getters:{
+    count(state){
+        return this.cart.length
+    }
+    },
+
     actions: {
         addToCart(product, count) {
             this.cart.push({
@@ -22,6 +30,7 @@ export const cartStore = defineStore('cart', {
             this.cart = this.cart.filter(p => p.id !== id)
         }
     },
+
     persist: {
         storage: persistedState.localStorage,
         key: 'shopping-cart'

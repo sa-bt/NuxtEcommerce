@@ -10,13 +10,13 @@
             </NuxtLink>
 
             <button
-              class="navbar-toggler"
-              type="button"
-              data-bs-toggle="collapse"
-              data-bs-target="#navbarSupportedContent"
-              aria-controls="navbarSupportedContent"
-              aria-expanded="false"
-              aria-label="Toggle navigation"
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
             >
               <span class="navbar-toggler-icon"></span>
             </button>
@@ -30,29 +30,31 @@
                   <NuxtLink class="nav-link" to="/menu">منو</NuxtLink>
                 </li>
                 <li
-                  class="nav-item"
-                  :class="{ active: $route.path === '/about-us' }"
+                    class="nav-item"
+                    :class="{ active: $route.path === '/about-us' }"
                 >
                   <NuxtLink class="nav-link" to="/about-us">درباره ما</NuxtLink>
                 </li>
                 <li
-                  class="nav-item"
-                  :class="{ active: $route.path === '/contact-us' }"
+                    class="nav-item"
+                    :class="{ active: $route.path === '/contact-us' }"
                 >
                   <NuxtLink class="nav-link" to="/contact-us"
-                    >تماس باما</NuxtLink
+                  >تماس باما
+                  </NuxtLink
                   >
                 </li>
               </ul>
               <div class="user_option">
-                <a class="cart_link position-relative" href="cart.html">
+                <NuxtLink class="cart_link position-relative" to="/cart">
                   <i class="bi bi-cart-fill text-white fs-5"></i>
-                  <span
-                    class="position-absolute top-0 translate-middle badge rounded-pill"
-                  >
-                    3
+                  <client-only>
+                  <span v-if="countCartItems > 0"
+                        class="position-absolute top-0 translate-middle badge rounded-pill">
+                    {{ countCartItems }}
                   </span>
-                </a>
+                  </client-only>
+                </NuxtLink>
                 <NuxtLink v-if="authUser" to="/profile" class="btn-auth">
                   پروفایل
                 </NuxtLink>
@@ -70,5 +72,9 @@
 </template>
 
 <script setup>
-const { authUser } = useAuth();
+const {authUser} = useAuth();
+import {cartStore} from "~/store/cart";
+
+const cart = cartStore();
+const countCartItems = computed(() => cart.count)
 </script>
