@@ -12,10 +12,13 @@ export const cartStore = defineStore('cart', {
         }
     },
 
-    getters:{
-    count(state){
-        return this.cart.length
-    }
+    getters: {
+        count(state) {
+            return state.cart.length
+        },
+        allItems(state) {
+            return state.cart
+        }
     },
 
     actions: {
@@ -28,6 +31,21 @@ export const cartStore = defineStore('cart', {
         },
         remove(id) {
             this.cart = this.cart.filter(p => p.id !== id)
+        },
+        increment(id) {
+            const item = this.cart.find(p => p.id === id);
+            if (item) {
+                item.qty++;
+            }
+        },
+        decrement(id) {
+            const item = this.cart.find(p => p.id === id);
+            if (item && item.quantity > 1) {
+                item.qty--;
+            }
+        },
+        clear(){
+            this.cart=[];
         }
     },
 
