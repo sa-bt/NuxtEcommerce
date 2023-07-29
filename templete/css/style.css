@@ -1185,7 +1185,7 @@ a:focus {
   color: #222831;
 }
 
-.cart-loadnig,
+.cart-loading,
 .cart-empty {
   height: 75vh;
   display: flex;

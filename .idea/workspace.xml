@@ -6,9 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="5e241a10-4fae-4001-9dc4-d7db1c96e2ae" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/NuxtEcommerce.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/NuxtEcommerce.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/phpspec.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/phpspec.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/landing/nuxt.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front/landing/nuxt.config.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/app/Http/Controllers/CouponController.php" beforeDir="false" afterPath="$PROJECT_DIR$/back/app/Http/Controllers/CouponController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/config/filesystems.php" beforeDir="false" afterPath="$PROJECT_DIR$/back/config/filesystems.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/landing/components/cart/Coupon.vue" beforeDir="false" afterPath="$PROJECT_DIR$/front/landing/components/cart/Coupon.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/landing/server/api/cart/checkCoupon.post.js" beforeDir="false" afterPath="$PROJECT_DIR$/front/landing/server/api/cart/checkCoupon.post.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templete/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/templete/css/style.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -163,7 +166,7 @@
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/pourya/Projects/NuxtEcommerce/back&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/pourya/Projects/NuxtEcommerce/front/landing/server/api/cart&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -180,10 +183,11 @@
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/front/landing/server/api/cart" />
+      <recent name="$PROJECT_DIR$/back/public" />
+      <recent name="$PROJECT_DIR$/back/storage/app/public" />
       <recent name="$PROJECT_DIR$/back" />
       <recent name="$PROJECT_DIR$/front/landing/server/api/profile/addresses" />
-      <recent name="$PROJECT_DIR$" />
-      <recent name="$PROJECT_DIR$/front/landing/pages/profile" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/front/landing/components/profile/address" />
@@ -225,6 +229,19 @@
       <workItem from="1691878600213" duration="528000" />
       <workItem from="1691911865005" duration="285000" />
       <workItem from="1691915396154" duration="841000" />
+      <workItem from="1691934050054" duration="6883000" />
+      <workItem from="1692136513352" duration="2662000" />
+      <workItem from="1692170962893" duration="10000" />
+      <workItem from="1692394650333" duration="3144000" />
+      <workItem from="1692430136124" duration="20000" />
+      <workItem from="1692516479771" duration="1047000" />
+      <workItem from="1692523403512" duration="48000" />
+      <workItem from="1692535700574" duration="78000" />
+      <workItem from="1692743440907" duration="3458000" />
+      <workItem from="1692774300173" duration="500000" />
+      <workItem from="1692882368957" duration="63000" />
+      <workItem from="1692883503069" duration="157000" />
+      <workItem from="1692885981374" duration="1002000" />
     </task>
     <servers />
   </component>

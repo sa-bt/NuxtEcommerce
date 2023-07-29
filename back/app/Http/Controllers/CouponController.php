@@ -127,7 +127,6 @@ class CouponController extends ApiController
         if ($validator->fails()) {
             return $this->errorResponse($validator->messages(), 422);
         }
-
         $coupon = Coupon::where('code', $request->code)->where('expired_at', '>', Carbon::now())->first();
 
         if ($coupon == null) {
