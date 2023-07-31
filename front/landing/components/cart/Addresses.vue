@@ -6,6 +6,7 @@
       </div>
       <select @change="(el)=>emit('setAddressId',el.target.value)" style="width: 200px;" class="form-select ms-3"
               aria-label="Default select example">
+        <option value="">---انتخاب آدرس ---</option>
         <option v-for="address in addresses" :value="address.id" :key="address.id" >{{ address.title }}
         </option>
       </select>
